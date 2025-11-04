@@ -126,8 +126,9 @@
 <?php
     require_once "config.inc.php";
 
-    echo "<h2>Administração de Clientes</h2>";
-
+    echo "<div style='text-align: center;'>";
+    echo "<h1>Administração de Clientes</h1>";
+    echo "<br>";
     $sql = "SELECT * FROM clientes";
     $resultado = mysqli_query($conexao, $sql);
     while ($dados = mysqli_fetch_array($resultado)) {
@@ -135,12 +136,14 @@
         echo "Cliente: " . $dados['cliente'] . " | ";
         echo "Cidade: " . $dados['cidade'] . " | ";
         echo "Estado: " . $dados['estado'] . " | ";
+        echo "<br>";
         echo "<a href='?pg=clientes-altera-form&id=$dados[id]'>Alterar</a> | ";
         echo "<a href='?pg=clientes-excluir&id=$dados[id]'>Excluir</a>";
         echo "<hr>";
     }
     echo "<br>";
     echo "<p style='text-align: center; text-decoration: underline; font-family: Montserrat, sans-serif;'><a href='?pg=clientes-cadastro-form'>Cadastro de Clientes</a></p>";
+    echo "</div>";
     mysqli_close($conexao);
 ?>
 
