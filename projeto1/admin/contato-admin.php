@@ -1,18 +1,31 @@
 <?php
+require_once 'config.inc.php';
 
-    require_once __DIR__ . '/config.inc.php';
+echo "<h2>Administração de Cadastros</h2>";
 
-    $sql = "SELECT * FROM contato";
-    $resultado = mysqli_query($conexao, $sql);
+$sql = "SELECT * FROM contato";
+$resultado = mysqli_query($conexao, $sql);
 
-    if (mysqli_num_rows($resultado) > 0) {
-        echo "<h1>Contatos</h1>";
-        while ($dados = mysqli_fetch_array($resultado)) {
-            echo "<br>";
-            echo "<p> Nome: $dados[nome] | Email: $dados[email] | Telefone: $dados[telefone] | Mensagem: $dados[mensagem]</p>";
-            echo "<br>";
-            echo "<hr>";
-        }
-    } else {
-        echo "<p>Nenhum contato cadastrado.</p>";
+if ($resultado && mysqli_num_rows($resultado) > 0) {
+    while ($dados = mysqli_fetch_assoc($resultado)) {
+        $id = (int)$dados['id'];
+        $nome = htmlspecialchars($dados['nome'], ENT_QUOTES, 'UTF-8');
+        $email = htmlspecialchars($dados['email'], ENT_QUOTES, 'UTF-8');
+        $telefone = htmlspecialchars($dados['telefone'], ENT_QUOTES, 'UTF-8');
+        $mensagem = htmlspecialchars($dados['mensagem'], ENT_QUOTES, 'UTF-8');
+
+        echo "Nome: {$nome} | ";
+        echo "Email: {$email} | ";
+        echo "Telefone: {$telefone} | ";
+        echo "Mensagem: {$mensagem} | ";
+
+        echo "<a href='?pg=contato-altera&id={$id}'>Alterar</a> | ";
+        echo "<a href='?pg=contato-excluir&id={$id}'>Excluir</a>";
+        echo "<hr>";
     }
+} else {
+    echo "<p>Nenhum contato cadastrado.</p>";
+}
+
+mysqli_close($conexao);
+?>
