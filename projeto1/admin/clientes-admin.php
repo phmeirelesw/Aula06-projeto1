@@ -121,6 +121,11 @@
     transition: 0.3s;
     transform: scale(1.1);
     }
+    a{
+        text-decoration: none;
+        color: #3b0e68;
+        font-weight: bold;
+    }
     </style>
     
 <?php
