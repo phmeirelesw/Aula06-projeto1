@@ -285,3 +285,77 @@ nav {
         height: auto;
     }
 }
+.bloco-imagens-texto {
+    width: 90%; /* O bloco não vai de ponta a ponta */
+    max-width: 900px; /* Limite máximo de largura */
+    margin: 2rem auto; /* Centraliza o bloco na página */
+}
+
+.item-bloco {
+    /* --- Layout de Celular (Mobile-First) --- */
+    display: flex;
+    flex-direction: column; /* No celular, imagem e texto ficam em coluna */
+    
+    background-color: #fff; /* Fundo branco para destacar */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Garante que a imagem não vaze das bordas arredondadas */
+}
+
+/* "Espaçamento de 2 dedos" entre os blocos */
+.item-bloco:first-child {
+    margin-bottom: 2rem; /* 2rem é um bom "espaçamento de 2 dedos" */
+}
+
+.item-imagem img {
+    width: 100%; /* Imagem sempre ocupa 100% do seu container */
+    height: auto;
+    display: block; /* Remove espaço extra embaixo da imagem */
+}
+
+.item-texto {
+    padding: 1.5rem; /* Espaçamento interno do texto */
+}
+
+/* Estilizando o texto com as fontes do seu projeto */
+.item-texto h3 {
+    font-family: "Cinzel", serif;
+    color: #3b0e68;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.item-texto p {
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* --- Layout de Telas Maiores (Desktop) --- */
+@media (min-width: 768px) {
+    
+    .item-bloco {
+        flex-direction: row; /* Em telas maiores, imagem e texto ficam lado a lado */
+        align-items: stretch; /* ISSO FORÇA A "MESMA ALTURA" */
+    }
+
+    .item-imagem {
+        flex-basis: 40%; /* Imagem ocupa 40% da largura */
+        flex-shrink: 0;
+    }
+    
+    .item-imagem img {
+        height: 100%; /* Imagem preenche a altura do container */
+        object-fit: cover; /* Evita que a imagem distorça (ela será cortada se necessário) */
+    }
+
+    .item-texto {
+        flex-basis: 60%; /* Texto ocupa 60% */
+        
+        /* Centraliza o conteúdo de texto verticalmente (BÔNUS) */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
