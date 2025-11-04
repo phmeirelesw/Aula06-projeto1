@@ -8,7 +8,7 @@
             <h2 class="form-title">Entre em Contato Conosco</h2>
     HTML;
 ?>
-            <form action="admin/contato-admin.php" method="post">
+            <form action="?pg=contato" method="post">
 
                 <input type="text" id="nome" name="nome" placeholder="Digite seu Nome" required><br><br>
     
