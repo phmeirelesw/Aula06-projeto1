@@ -24,6 +24,9 @@ hr{
     background-color: #3b0e68;
     margin: 16px 0;
 }
+.site-content{
+    flex-grow: 1;
+}
 /*FORMULÁRIO*/
 
 *,::after,::before{
