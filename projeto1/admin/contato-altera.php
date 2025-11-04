@@ -1,12 +1,12 @@
 <?php
     require_once "config.inc.php";
-
+    $id = $_POST['id'];
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $telefone = $_POST['telefone'];
     $mensagem = $_POST['mensagem'];
 
-    $sql = "UPDATE contato SET nome='$nome', email='$email', telefone='$telefone', mensagem='$mensagem'" ;
+    $sql = "UPDATE contato SET nome='$nome', email='$email', telefone='$telefone', mensagem='$mensagem' WHERE id='$id'";
 
    if ($resultado  = mysqli_query($conexao, $sql)) {
     echo "<br><h2>Contato alterado com sucesso!</h2>";
