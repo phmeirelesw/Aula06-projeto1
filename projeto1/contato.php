@@ -33,7 +33,6 @@ mysqli_stmt_bind_param($stmt, "ssss", $nome, $email, $telefone, $mensagem);
 
 if (mysqli_stmt_execute($stmt)) {
     echo "Formulário cadastrado com sucesso!";
-    echo "<p><a href='?pg=contato-admin'>Voltar para Administração de Cadastros</a></p>";
 } else {
     echo "Erro: " . mysqli_stmt_error($stmt);
 }
