@@ -1,11 +1,16 @@
 <?php
 require_once 'config.inc.php';
 
-echo "<h2>Administração de Cadastros</h2>";
+echo "<h1 style='text-align: center;'>Administração de Cadastros</h1>";
+echo "<br>";
+echo "<br>";
 
 $sql = "SELECT * FROM contato";
 $resultado = mysqli_query($conexao, $sql);
 
+echo "<div style='text-align: center;'>";
+echo "<h2>Lista de Contatos Cadastrados:</h2>";
+echo "<br>";
 if ($resultado && mysqli_num_rows($resultado) > 0) {
     while ($dados = mysqli_fetch_assoc($resultado)) {
         $id = (int)$dados['id'];
@@ -14,18 +19,20 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
         $telefone = htmlspecialchars($dados['telefone'], ENT_QUOTES, 'UTF-8');
         $mensagem = htmlspecialchars($dados['mensagem'], ENT_QUOTES, 'UTF-8');
 
+
+        echo "ID: {$id} | ";
         echo "Nome: {$nome} | ";
         echo "Email: {$email} | ";
         echo "Telefone: {$telefone} | ";
         echo "Mensagem: {$mensagem} | ";
-
-        echo "<a href='?pg=contato-altera&id={$id}'>Alterar</a> | ";
+        echo "<br>";
+        echo "<a href='?pg=contato-altera-form&id={$id}'>Alterar</a> | ";
         echo "<a href='?pg=contato-excluir&id={$id}'>Excluir</a>";
         echo "<hr>";
     }
 } else {
     echo "<p>Nenhum contato cadastrado.</p>";
 }
-
+echo "</div>";
 mysqli_close($conexao);
 ?>
