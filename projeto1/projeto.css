@@ -226,14 +226,21 @@ nav {
     }
 }
 /*SOBRE NÓS*/
-.sobre {
-    display: flex;
-    align-items: stretch;      /* garante mesma altura entre imagem e texto */
-    gap: 24px;
+.sobre{
     max-width: 1100px;
     margin: 0 auto;
     padding: 16px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* cada bloco imagem+texto */
+.sobre-item {
+    display: flex;
+    align-items: stretch; /* mantém colunas com mesma altura; se preferir, use center */
+    gap: 24px;
 }
 
 .sobre-img-celula {
@@ -259,7 +266,7 @@ nav {
 
 .sobre-text h2 {
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.6;
     font-weight: 400;
     font-family: "Montserrat", sans-serif;
 }
