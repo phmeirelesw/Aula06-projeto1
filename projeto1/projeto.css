@@ -302,9 +302,9 @@ nav {
     overflow: hidden; /* Garante que a imagem não vaze das bordas arredondadas */
 }
 
-/* "Espaçamento de 2 dedos" entre os blocos */
+
 .item-bloco:first-child {
-    margin-bottom: 2rem; /* 2rem é um bom "espaçamento de 2 dedos" */
+    margin-bottom: 2rem;
 }
 
 .item-imagem img {
@@ -347,13 +347,13 @@ nav {
     
     .item-imagem img {
         height: 100%; /* Imagem preenche a altura do container */
-        object-fit: cover; /* Evita que a imagem distorça (ela será cortada se necessário) */
+        object-fit: cover; /* Evita que a imagem distorça  */
     }
 
     .item-texto {
         flex-basis: 60%; /* Texto ocupa 60% */
         
-        /* Centraliza o conteúdo de texto verticalmente (BÔNUS) */
+        /* Centraliza o conteúdo de texto verticalmente*/
         display: flex;
         flex-direction: column;
         justify-content: center;
