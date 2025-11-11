@@ -16,7 +16,7 @@
         }
      
 ?>
-<form action="?pg=clientes-altera" method="post">
+<form action="?pg=contato-altera" method="post">
 
         <input type="text" name="nome" value="<?=$nome?>"  required><br><br>
 
